@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       authcode:
-        description: '& "& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AfJohXnGX4Z684cFgQtrvq7BLRK0-ztGRNaENzBD8ZUR9-ndPGr9FaIn8x5PXbX4HI9TDw" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME'
+        description: '& "${Env:PROGRAMFILES(X86)}\Google\Chrome Remote Desktop\CurrentVersion\remoting_start_host.exe" --code="4/0AX4XfWiBnzaj0Qu6VsQyMSc2QNXTND1t6q2iwaTYV2MIUA_XLKgGL4ePAWINrw-Oqubc1w" --redirect-url="https://remotedesktop.google.com/_/oauthredirect" --name=$Env:COMPUTERNAME'
         required: true
       pincode:
         description: '123456'
@@ -23,9 +23,8 @@ jobs:
     - name: Starting CRD 
       run: ${{ github.event.inputs.authcode }} -pin=${{ github.event.inputs.pincode }}
     - name: Keep Alive
+      run: ./timeout.ps1
+
+  
     
-    
-    
-    
-    
-    
+
